@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cryptctl"
+dynamic = ["version"]
+description = "Cifra automáticamente lo que se sube a una carpeta del repo (CLI estilo kubectl)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=41",
+    "watchdog>=3",
+]
+
+[project.scripts]
+cryptctl = "cryptctl.cli:main"
+
+[tool.setuptools]
+packages = ["cryptctl"]
+
+[tool.setuptools.dynamic]
+version = { attr = "cryptctl.__version__" }
